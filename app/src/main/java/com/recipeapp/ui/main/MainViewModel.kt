@@ -29,6 +29,7 @@ data class MainUiState(
     val isLoadingMore: Boolean = false
 )
 
+// Show 30 items per page — large enough to fill the screen without overwhelming memory
 private const val PAGE_SIZE = 30
 
 @OptIn(FlowPreview::class)
@@ -44,7 +45,7 @@ class MainViewModel(private val repository: MealRepository) : ViewModel() {
         loadInitialMeals()
 
         _searchQueryFlow
-            .debounce(400)
+            .debounce(400) // 400ms: fast enough for responsiveness, avoids API calls on every keystroke
             .distinctUntilChanged()
             .onEach { query ->
                 fetchMeals(query, _uiState.value.selectedCategory)

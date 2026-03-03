@@ -19,7 +19,8 @@ class MealRepositoryImpl(
 ) : MealRepository {
 
     private val gson = Gson()
-    private val cacheMaxAge = 60 * 60 * 1000L // 1 hour in ms
+    // 1 hour: balances freshness with avoiding excessive network calls on re-launch
+    private val cacheMaxAge = 60 * 60 * 1000L
 
     override suspend fun searchMeals(query: String): Result<List<Meal>> {
         return try {
