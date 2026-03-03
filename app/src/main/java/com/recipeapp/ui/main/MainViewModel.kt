@@ -116,7 +116,7 @@ class MainViewModel(private val repository: MealRepository) : ViewModel() {
                 .onFailure { e ->
                     _uiState.value = _uiState.value.copy(
                         isLoading = false,
-                        error = e.message ?: "An unknown error occurred"
+                        error = e.message ?: "Une erreur inconnue s'est produite"
                     )
                 }
         }

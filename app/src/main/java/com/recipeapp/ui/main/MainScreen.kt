@@ -78,7 +78,7 @@ fun MainScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Recipes") },
+                title = { Text("Recettes") },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimary
@@ -97,8 +97,8 @@ fun MainScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),
-                placeholder = { Text("Search recipes...") },
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") },
+                placeholder = { Text("Rechercher des recettes…") },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Rechercher") },
                 singleLine = true,
                 colors = TextFieldDefaults.colors(
                     focusedContainerColor = MaterialTheme.colorScheme.surface,
@@ -136,12 +136,12 @@ fun MainScreen(
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                text = state.error ?: "Error",
+                                text = state.error ?: "Erreur",
                                 color = MaterialTheme.colorScheme.error,
                                 modifier = Modifier.padding(16.dp)
                             )
                             Button(onClick = { viewModel.retry() }) {
-                                Text("Retry")
+                                Text("Réessayer")
                             }
                         }
                     }

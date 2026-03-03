@@ -51,10 +51,10 @@ fun DetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(state.meal?.strMeal ?: "Recipe Detail") },
+                title = { Text(state.meal?.strMeal ?: "Détail de la recette") },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Retour")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -76,7 +76,7 @@ fun DetailScreen(
                 }
                 state.error != null -> {
                     Text(
-                        text = state.error ?: "Error",
+                        text = state.error ?: "Erreur",
                         color = MaterialTheme.colorScheme.error,
                         modifier = Modifier
                             .align(Alignment.Center)
@@ -111,7 +111,7 @@ fun DetailScreen(
                             if (meal.strCategory.isNotBlank()) {
                                 Row {
                                     Text(
-                                        text = "Category: ",
+                                        text = "Catégorie : ",
                                         style = MaterialTheme.typography.bodyMedium,
                                         fontWeight = FontWeight.SemiBold
                                     )
@@ -126,7 +126,7 @@ fun DetailScreen(
                             if (meal.strArea.isNotBlank()) {
                                 Row {
                                     Text(
-                                        text = "Area: ",
+                                        text = "Origine : ",
                                         style = MaterialTheme.typography.bodyMedium,
                                         fontWeight = FontWeight.SemiBold
                                     )
@@ -141,7 +141,7 @@ fun DetailScreen(
 
                             if (meal.ingredients.isNotEmpty()) {
                                 Text(
-                                    text = "Ingredients",
+                                    text = "Ingrédients",
                                     style = MaterialTheme.typography.titleMedium,
                                     fontWeight = FontWeight.Bold
                                 )

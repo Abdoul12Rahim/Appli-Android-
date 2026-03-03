@@ -55,7 +55,7 @@ fun SplashScreen(onFinished: () -> Unit) {
         ) {
             AsyncImage(
                 model = R.drawable.ic_recipe_logo,
-                contentDescription = "App Logo",
+                contentDescription = "Logo de l'application",
                 modifier = Modifier.size(120.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -67,7 +67,7 @@ fun SplashScreen(onFinished: () -> Unit) {
                 fontSize = 32.sp
             )
             Text(
-                text = "Discover delicious recipes",
+                text = "Découvrez de délicieuses recettes",
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
             )

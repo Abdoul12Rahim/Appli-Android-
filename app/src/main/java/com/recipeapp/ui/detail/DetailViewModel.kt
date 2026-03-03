@@ -29,7 +29,7 @@ class DetailViewModel(private val repository: MealRepository) : ViewModel() {
                     _uiState.value = DetailUiState(meal = meal)
                 }
                 .onFailure { e ->
-                    _uiState.value = DetailUiState(error = e.message ?: "Failed to load meal")
+                    _uiState.value = DetailUiState(error = e.message ?: "Impossible de charger la recette")
                 }
         }
     }
