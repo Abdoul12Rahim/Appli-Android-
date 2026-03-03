@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Chef hat shape -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,20 C40,20 30,28 30,38 C30,44 33,49 38,52 L36,72 L72,72 L70,52 C75,49 78,44 78,38 C78,28 68,20 54,20Z" />
+    <!-- Hat brim -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,70 L74,70 L74,76 L34,76Z" />
+    <!-- Top puff of hat -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,14 C46,14 40,19 40,25 C40,28 41.5,30.5 44,32 C44,32 44,34 44,36 L64,36 C64,34 64,32 64,32 C66.5,30.5 68,28 68,25 C68,19 62,14 54,14Z" />
+</vector>
