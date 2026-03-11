@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RecettesApp</string>
+    <string name="search_hint">Rechercher des recettes…</string>
+    <string name="loading">Chargement…</string>
+    <string name="retry">Réessayer</string>
+    <string name="error_network">Erreur réseau. Affichage des données en cache.</string>
+    <string name="no_results">Aucune recette trouvée.</string>
+    <string name="ingredients">Ingrédients</string>
+    <string name="instructions">Instructions</string>
+    <string name="category">Catégorie</string>
+    <string name="area">Origine</string>
+</resources>
