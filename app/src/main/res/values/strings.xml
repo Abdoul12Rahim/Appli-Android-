@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Recettes</string>
+    <string name="search_hint">Rechercher une recette…</string>
+    <string name="categories_label">Catégories</string>
+    <string name="all_label">Toutes</string>
+    <string name="offline_message">Mode hors ligne · Données en cache</string>
+    <string name="empty_title">Aucune recette trouvée</string>
+    <string name="empty_subtitle">Essayez une autre recherche ou catégorie</string>
+    <string name="error_title">Une erreur est survenue</string>
+    <string name="error_subtitle">Vérifiez votre connexion et réessayez</string>
+    <string name="retry">Réessayer</string>
+    <string name="ingredients_label">Ingrédients</string>
+    <string name="instructions_label">Instructions</string>
+    <string name="category_label">Catégorie</string>
+    <string name="area_label">Cuisine</string>
+    <string name="back">Retour</string>
+    <string name="recipe_image">Image de la recette</string>
+    <string name="loading">Chargement…</string>
+    <string name="no_instructions">Instructions non disponibles.</string>
+    <string name="content_desc_search">Rechercher</string>
+    <string name="content_desc_offline">Hors ligne</string>
+</resources>
