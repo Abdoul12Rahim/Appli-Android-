@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/chip_height"
+    android:layout_margin="4dp"
+    android:checkable="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
+    style="@style/Widget.Material3.Chip.Filter"
+    app:chipStrokeWidth="1dp" />
