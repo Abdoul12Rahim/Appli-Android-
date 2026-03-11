@@ -48,6 +48,12 @@ class MainActivity : ComponentActivity() {
                             RecipeListScreen(
                                 onNavigateToDetail = { recipeId ->
                                     navController.navigate("detail/$recipeId")
+                                },
+                                onNavigateToHome = {
+                                    // Retourne à l'accueil proprement en vidant l'historique
+                                    navController.navigate("home") {
+                                        popUpTo("home") { inclusive = true }
+                                    }
                                 }
                             )
                         }
