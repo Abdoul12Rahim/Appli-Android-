@@ -12,7 +12,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,8 +21,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.androidlabs.recette_app_supinfo.data.RecipeEntity // IMPORTANT
 
 // Couleurs de l'app
 val PrimaryGreen = Color(0xFF13EC13)
@@ -40,19 +39,26 @@ fun RecipeListScreen(
     val meals by mealViewModel.filteredMeals.collectAsState()
     val categories by mealViewModel.categories.collectAsState()
 
-    // CORRECTION: On déclare listState ici
+    // On observe la base de données Room (Pour le mode Offline)
+    val offlineMeals by mealViewModel.mealsFromDb.collectAsState()
+
     val listState = rememberLazyListState()
 
     Scaffold(
-        containerColor = Color(0xFFF6F8F6),
+        containerColor = BackgroundLight,
         topBar = { TopHeaderWithSearch(searchQuery) { mealViewModel.onSearchQueryChange(it) } },
         bottomBar = { CustomBottomNavigation(onNavigateToHome) }
     ) { paddingValues ->
-        if (meals.isEmpty()) {
+
+        // Si l'API est vide ET la base de données est vide -> Chargement
+        if (meals.isEmpty() && offlineMeals.isEmpty()) {
             Box(Modifier.fillMaxSize().padding(paddingValues), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator(color = Color(0xFF13EC13))
+                CircularProgressIndicator(color = PrimaryGreen)
             }
         } else {
+            // Choix de la liste : Priorité à l'API, sinon Room
+            val listToDisplay = if (meals.isNotEmpty()) meals else offlineMeals
+
             LazyColumn(
                 state = listState,
                 modifier = Modifier.fillMaxSize().padding(paddingValues).padding(horizontal = 16.dp),
@@ -69,8 +75,21 @@ fun RecipeListScreen(
                         }
                     }
                 }
-                items(meals) { meal ->
-                    RecipeCard(meal.strMeal, meal.strMealThumb) { onNavigateToDetail(meal.idMeal) }
+
+
+                items(listToDisplay) { item ->
+                    when (item) {
+                        is RecipeEntity -> {
+                            RecipeCard(item.strMeal, item.strMealThumb) {
+                                onNavigateToDetail(item.idMeal)
+                            }
+                        }
+                        is Meal -> {
+                            RecipeCard(item.strMeal, item.strMealThumb) {
+                                onNavigateToDetail(item.idMeal)
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -85,7 +104,12 @@ fun RecipeCard(title: String, imageUrl: String, onClick: () -> Unit) {
         colors = CardDefaults.cardColors(containerColor = Color.White)
     ) {
         Column {
-            AsyncImage(model = imageUrl, contentDescription = null, contentScale = ContentScale.Crop, modifier = Modifier.fillMaxWidth().height(180.dp))
+            AsyncImage(
+                model = imageUrl,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxWidth().height(180.dp)
+            )
             Text(title, fontWeight = FontWeight.Bold, modifier = Modifier.padding(16.dp))
         }
     }
@@ -94,11 +118,11 @@ fun RecipeCard(title: String, imageUrl: String, onClick: () -> Unit) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopHeaderWithSearch(query: String, onQueryChange: (String) -> Unit) {
-    Column(modifier = Modifier.fillMaxWidth().background(Color(0xFFF6F8F6)).padding(16.dp)) {
+    Column(modifier = Modifier.fillMaxWidth().background(BackgroundLight).padding(16.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(bottom = 16.dp)) {
-            Icon(Icons.Default.Menu, contentDescription = null, tint = Color(0xFF13EC13))
+            Icon(Icons.Default.Menu, contentDescription = null, tint = PrimaryGreen)
             Spacer(modifier = Modifier.width(8.dp))
-            Text("Dabali Express", fontSize = 20.sp, fontWeight = FontWeight.Bold)
+            Text("RECETTES+", fontSize = 20.sp, fontWeight = FontWeight.Bold)
         }
         OutlinedTextField(
             value = query, onValueChange = onQueryChange,
@@ -115,7 +139,7 @@ fun CustomBottomNavigation(onHomeClick: () -> Unit) {
     BottomAppBar(containerColor = Color.White) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             IconButton(onClick = onHomeClick) { Icon(Icons.Default.Home, contentDescription = null) }
-            IconButton(onClick = { }) { Icon(Icons.Default.List, contentDescription = null, tint = Color(0xFF13EC13)) }
+            IconButton(onClick = { }) { Icon(Icons.Default.List, contentDescription = null, tint = PrimaryGreen) }
         }
     }
 }

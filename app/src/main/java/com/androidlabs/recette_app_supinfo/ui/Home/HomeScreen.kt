@@ -17,21 +17,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Les mêmes couleurs que sur l'écran Liste
+
 val PrimaryGreen = Color(0xFF13EC13)
 val BackgroundLight = Color(0xFFF6F8F6)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(onNavigateToList: () -> Unit) {
-    // Le Scaffold nous permet de caler facilement la barre en bas
     Scaffold(
         containerColor = BackgroundLight,
         bottomBar = {
             HomeBottomNavigation(onListClick = onNavigateToList)
         }
     ) { paddingValues ->
-        // Le contenu principal de la page d'accueil (centré)
         Box(
             modifier = Modifier
                 .fillMaxSize()
@@ -39,7 +37,6 @@ fun HomeScreen(onNavigateToList: () -> Unit) {
             contentAlignment = Alignment.Center
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                // Tu pourras remplacer ça par un joli logo plus tard !
                 Text(
                     text = "Project Supinfo LIlle ",
                     fontSize = 24.sp,
@@ -57,7 +54,6 @@ fun HomeScreen(onNavigateToList: () -> Unit) {
     }
 }
 
-// --- LA BARRE DE NAVIGATION (Version Home) ---
 @Composable
 fun HomeBottomNavigation(onListClick: () -> Unit) {
     Surface(
@@ -72,7 +68,6 @@ fun HomeBottomNavigation(onListClick: () -> Unit) {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Bouton Home (Actif, Vert et Surélevé)
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.offset(y = (-12).dp)
@@ -89,13 +84,11 @@ fun HomeBottomNavigation(onListClick: () -> Unit) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Text("HOME", fontSize = 10.sp, color = PrimaryGreen, fontWeight = FontWeight.Bold)
             }
-
-            // Bouton Recipes (Inactif, Gris et Cliquable)
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .clip(RoundedCornerShape(8.dp))
-                    .clickable { onListClick() } // C'est ici qu'on passe à la liste !
+                    .clickable { onListClick() }
                     .padding(8.dp)
             ) {
                 Icon(Icons.Default.List, contentDescription = "Recipes", tint = Color.Gray)

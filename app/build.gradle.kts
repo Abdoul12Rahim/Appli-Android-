@@ -81,7 +81,11 @@ dependencies {
     // Les pièces pour faire marcher l'API (Ktor)
     implementation("io.ktor:ktor-client-cio:2.3.7")
     implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")}
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")}
 
 // --- Configure le compilateur Kotlin pour utiliser Java 11 ---
 kotlin {
