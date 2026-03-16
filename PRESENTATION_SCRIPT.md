@@ -1,4 +1,4 @@
-# Script de présentation — Application Android "RecipeApp"
+# Script de présentation — Application Android "COOKING EXPRESS"
 > **Destiné à Gamma AI — 10 cartes maximum**
 > Copiez ce script tel quel dans Gamma AI pour générer votre présentation.
 
@@ -6,17 +6,19 @@
 
 ## Carte 1 — Titre
 
-**Titre :** Application Android de Recettes de Cuisine
+**Titre :** COOKING EXPRESS
 
 **Sous-titre :** Consultez vos recettes en ligne et hors ligne
 
-**Visuel suggéré :** Logo de l'application sur fond coloré (image d'une assiette ou d'ustensiles de cuisine)
+**Logo :** ![Logo Cooking Express](https://github.com/user-attachments/assets/75d75114-b143-49d7-882f-0658c964e12f)
+
+**Visuel suggéré :** Logo COOKING EXPRESS sur fond blanc (wordmark "cook" avec flamme verte et poêle, sous-titre vert "COOKING EXPRESS")
 
 ---
 
 ## Carte 2 — Présentation du projet
 
-**Titre :** Qu'est-ce que RecipeApp ?
+**Titre :** Qu'est-ce que COOKING EXPRESS ?
 
 **Contenu :**
 - Application Android développée en **Kotlin**
@@ -24,7 +26,7 @@
 - Fonctionne **en ligne ET hors ligne** grâce au cache local
 - Interface moderne et intuitive en **Material Design 3**
 
-**Visuel suggéré :** Capture d'écran de l'écran principal (liste de recettes)
+**Visuel suggéré :** Logo COOKING EXPRESS + capture d'écran de l'écran principal (liste de recettes)
 
 ---
 
@@ -82,7 +84,7 @@
 **Titre :** Parcours utilisateur
 
 **Contenu :**
-1. **Splash Screen** — Écran d'accueil animé (2 secondes)
+1. **Splash Screen** — Écran d'accueil animé avec logo COOKING EXPRESS (2 secondes)
 2. **Écran Principal** — Liste des recettes + barre de recherche + filtres
 3. **Écran Détail** — Photo, ingrédients et instructions de la recette
 
@@ -122,7 +124,7 @@
 
 ## Carte 9 — Points forts du projet
 
-**Titre :** Ce qui rend ce projet remarquable
+**Titre :** Ce qui rend COOKING EXPRESS remarquable
 
 **Contenu :**
 - ✅ **Clean Architecture** — Code maintenable et testable
@@ -140,7 +142,7 @@
 **Titre :** Bilan & améliorations futures
 
 **Contenu — Ce qui a été réalisé :**
-- Application fonctionnelle avec recherche, filtres et mode hors ligne
+- Application COOKING EXPRESS fonctionnelle avec recherche, filtres et mode hors ligne
 - Architecture propre et scalable
 
 **Contenu — Améliorations envisagées :**
@@ -149,8 +151,8 @@
 - 🔔 **Notifications** de nouvelles recettes
 - 📊 Historique de navigation
 
-**Visuel suggéré :** Icône de fusée ou d'étoile pour les perspectives
+**Visuel suggéré :** Logo COOKING EXPRESS + icône de fusée ou d'étoile pour les perspectives
 
 ---
 
-*Script généré pour Gamma AI — 10 cartes — Application Android RecipeApp*
+*Script généré pour Gamma AI — 10 cartes — Application Android COOKING EXPRESS*

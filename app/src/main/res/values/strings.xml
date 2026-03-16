@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RecettesApp</string>
+    <string name="app_name">Cooking Express</string>
     <string name="search_hint">Rechercher des recettes…</string>
     <string name="loading">Chargement…</string>
     <string name="retry">Réessayer</string>
